@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SystemInfo</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="header bg-dark">
+        <h2 class="text-center text-danger">
+           <img class="img-rounded" style="width: 120px; height: 120px;" src="images/SystemConfig.png" alt="icon">
+        </h2>
+    </div>
+    <br>
+    <br>
+    <div class="container jumbotron">
+        <div class="container">
+            <ul class="list-group">
+                <h3 class="text-danger">PC Info :</h3>
+                <li class="list-group-item">Name :<small class="text-primary" id="output13"></small></li>
+                <li class="list-group-item">Username :<small class="text-primary" id="output14"></small></li>
+                <li class="list-group-item">Sytem Drive :<small class="text-primary" id="output15"></small></li>
+                <li class="list-group-item">System Root :<small class="text-primary" id="output16"></small></li>
+            </ul>
+            <br>
+            <ul class="list-group">
+                <h3 class="text-danger">Tools Versions :</h3>
+                <li class="list-group-item">Node :<small class="text-primary" id="output"></small></li>
+                <li class="list-group-item">Electron :<small class="text-primary" id="output1"></small></li>
+                <li class="list-group-item">Chrome :<small class="text-primary" id="output2"></small></li>
+                <li class="list-group-item">HTTP parser :<small class="text-primary" id="output3"></small></li>
+                <li class="list-group-item">Modules :<small class="text-primary" id="output4"></small></li>
+            </ul>
+            <br>
+            <ul class="list-group">
+                <h3 class="text-danger">System Specs :</h3>
+                <li class="list-group-item">Architecture :<small class="text-primary" id="output5"></small></li>
+                <li class="list-group-item">Platform :<small class="text-primary" id="output8"></small></li>
+                <li class="list-group-item">Processor :<small class="text-primary" id="output6"></small></li>
+                <li class="list-group-item">Processor Level :<small class="text-primary" id="output7"></small></li>
+            </ul>
+            <br>
+            <ul class="list-group">
+                <h3 class="text-danger">System Memory :</h3>
+                <li class="list-group-item">Total :<small class="text-primary" id="output9"></small></li>
+                <li class="list-group-item">Free :<small class="text-primary" id="output10"></small></li>
+                <li class="list-group-item">Swap Total :<small class="text-primary" id="output11"></small></li>
+                <li class="list-group-item">Swap Free :<small class="text-primary" id="output12"></small></li>
+            </ul>
+            <br>
+            <br>
+        </div>
+    </div>
+</body>
+<footer class="footer fixed-bottom bg-dark">
+    <div class="footer-copyright text-center text-light">&copy;<span id="year"></span>
+        <a class="text-danger" href="#">Mohanstark</a>
+        Copyrights Reserved.
+    </div>
+</footer>
+<script src="./renderer.js"></script>
+<script>
+    console.log(process);
+    document.getElementById('output').innerHTML=" "+process.versions.node;
+    document.getElementById('output1').innerHTML=" "+process.versions.electron;
+    document.getElementById('output2').innerHTML=" "+process.versions.chrome;
+    document.getElementById('output3').innerHTML=" "+process.versions.http_parser;
+    document.getElementById('output4').innerHTML=" "+process.versions.modules;
+    document.getElementById('output5').innerHTML=" "+process.arch;
+    document.getElementById('output6').innerHTML=" "+process.env.PROCESSOR_IDENTIFIER;
+    document.getElementById('output7').innerHTML=" "+process.env.PROCESSOR_LEVEL; 
+    document.getElementById('output8').innerHTML=" "+process.platform; 
+    document.getElementById('output9').innerHTML=" "+process.getSystemMemoryInfo().total;
+    document.getElementById('output10').innerHTML=" "+process.getSystemMemoryInfo().free;
+    document.getElementById('output11').innerHTML=" "+process.getSystemMemoryInfo().swapTotal;
+    document.getElementById('output12').innerHTML=" "+process.getSystemMemoryInfo().swapFree;
+    document.getElementById('output13').innerHTML=" "+process.env.USERDOMAIN;
+    document.getElementById('output14').innerHTML=" "+process.env.USERNAME;
+    document.getElementById('output15').innerHTML=" "+process.env.SYSTEMDRIVE;
+    document.getElementById('output16').innerHTML=" "+process.env.SYSTEMROOT;
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+</script>
+</html>
